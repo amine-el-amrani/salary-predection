@@ -2,6 +2,10 @@
 
 This project is a salary prediction system built with Flask. It allows users to predict salaries based on job-related data. The application is designed to be simple yet effective, providing insights into potential earnings in the U.S. job market.
 
+## Demo
+
+[![Demo Video](assets/demo.mp4)](assets/demo.mp4)
+
 ## Setup Instructions
 
 ### Prerequisites
