@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Résultat de Prédiction</title>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+    <!-- Style personnalisé -->
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f4f7f6;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            width: 100%;
+            text-align: center;
+        }
+        h1 {
+            color: #4CAF50;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        p {
+            font-size: 18px;
+            margin: 10px 0;
+            color: #555;
+        }
+        .result {
+            font-weight: bold;
+            color: #333;
+        }
+        .result.usd {
+            color: #2196F3;
+        }
+        .result.eur {
+            color: #FF9800;
+        }
+        .btn-new-prediction {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .btn-new-prediction:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Résultat de Prédiction</h1>
+        <p>Le salaire prédit est : <span class="result usd">{{ prediction | round(2) }} USD</span></p>
+        <p>Le salaire prédit en euros est : <span class="result eur">{{ (prediction * 0.91) | round(2) }} EUR</span></p> <!-- Taux de change de 1 USD = 0.91 EUR -->
+
+        <!-- Bouton pour faire une nouvelle prédiction -->
+        <a href="/" class="btn-new-prediction">Faire une nouvelle prédiction</a>
+    </div>
+</body>
+</html>
