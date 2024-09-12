@@ -49,7 +49,7 @@ python model_optimization.py
 
 ### 5. Run the Flask Application
 
-## Option 1: Running Locally
+#### Option 1: Running Locally
 If you're running locally, start the Flask application:
 
 ```bash
@@ -57,7 +57,7 @@ python app.py
 ```
 The server will be running at http://127.0.0.1:5000.
 
-## Option 1: Running with Docker
+#### Option 1: Running with Docker
 Build the Docker image:
 
 ```bash
