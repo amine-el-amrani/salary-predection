@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sélection de l'intitulé de poste</title>
+    <!-- Inclure le CSS de Selectize -->
+    <link href="https://cdn.jsdelivr.net/npm/selectize@0.12.6/dist/css/selectize.default.min.css" rel="stylesheet" />
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+    <!-- Style personnalisé -->
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f4f7f6;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            text-align: center;
+            max-width: 400px;
+            width: 100%;
+        }
+        h1 {
+            color: #4CAF50;
+            text-align: center;
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+        form {
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            max-width: 100%;
+            width: 100%;
+            margin: 0 auto;
+        }
+        label {
+            margin-top: 10px;
+            display: block;
+            color: #555;
+            font-weight: bold;
+            text-align: left;
+        }
+        select, input[type="submit"] {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+        select:focus, input[type="submit"]:focus {
+            outline: none;
+            border-color: #4CAF50;
+            box-shadow: 0 0 10px rgba(76, 175, 80, 0.3);
+        }
+        input[type="submit"] {
+            background: linear-gradient(45deg, #4CAF50, #81C784);
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        input[type="submit"]:hover {
+            background: linear-gradient(45deg, #388E3C, #66BB6A);
+        }
+        select.selectized {
+            padding: 0;
+        }
+        .form-section {
+            border-bottom: 1px solid #eee;
+            padding-bottom: 15px;
+            margin-bottom: 15px;
+        }
+    </style>
+
+    <!-- Inclure le JavaScript de Selectize -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/selectize@0.12.6/dist/js/standalone/selectize.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Prédire le Salaire</h1>
+        <form method="post">
+            <div class="form-section">
+                <label for="experience_level">Niveau d'expérience :</label>
+                <select name="experience_level" required>
+                    {% for level in experience_levels %}
+                        <option value="{{ level }}">{{ experience_level_mapping[level] }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            
+            <div class="form-section">
+                <label for="employment_type">Type d'emploi :</label>
+                <select name="employment_type" required>
+                    {% for type in employment_types %}
+                        <option value="{{ type }}">{{ employment_type_mapping[type] }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            
+            <div class="form-section">
+                <label for="job_title">Intitulé de poste :</label>
+                <select id="job_title" name="job_title" required>
+                    <option value="">Sélectionnez un intitulé...</option>
+                    {% for title in job_titles %}
+                        <option value="{{ title }}">{{ title }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <!-- Initialiser Selectize -->
+            <script type="text/javascript">
+                $(document).ready(function() {
+                    $('#job_title').selectize({
+                        create: false,
+                        sortField: 'text',
+                        placeholder: 'Commencez à taper pour rechercher...'
+                    });
+                });
+            </script>
+            
+            <input type="submit" value="Prédire le salaire">
+        </form>
+    </div>
+</body>
+</html>
