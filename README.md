@@ -4,7 +4,7 @@ This project is a salary prediction system built with Flask. It allows users to 
 
 ## Demo
 
-[![Demo Video](assets/demo.mp4)](assets/demo.mp4)
+[![Demo Video](assets/demo.gif)](assets/demo.gif)
 
 ## Setup Instructions
 
