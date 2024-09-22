@@ -1,6 +1,6 @@
 # Salary Prediction App
 
-This project is a salary prediction system built with Flask. It allows users to predict salaries based on job-related data. The application is designed to be simple yet effective, providing insights into potential earnings in the U.S. job market.
+This project is a Salary Prediction System built with Flask, using Sklearn for machine learning. The application allows users to predict salaries based on job-related data such as job title, experience level, and employment type. It offers a user-friendly interface where users can easily input their experience level, employment type, and job title, and the system will predict their potential salary. Designed for simplicity and efficiency, the app provides valuable insights into earnings in the U.S. job market.
 
 ## Demo
 
